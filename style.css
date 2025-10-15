@@ -1,0 +1,505 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+.hero {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.logo i {
+    font-size: 6rem;
+    color: #84cc16;
+    margin-bottom: 10px;
+}
+.hero {
+    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fbarber%2F&psig=AOvVaw0f-g6b_g6b_g6b_g6b_g6b_g6b&ust=1697316000000000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPCCh_vB-oEDFQAAAAAdAAAAABAD');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section {
+    padding: 0 0 60px;
+    margin-bottom: 0;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+}
+
+.about-content {
+    justify-content: center;
+    text-align: center;
+}
+
+.about-text,
+.services-list,
+.contact-form {
+    flex-basis: 50%;
+}
+
+.about-img,
+.services-img,
+.contact-map {
+    flex-basis: 40%;
+}
+
+.about-img img,
+.services-img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: #1c1c1c;
+    padding: 40px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: #84cc16;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.sales-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sales-item {
+    background-color: #1c1c1c;
+    padding: 40px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.sales-item h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #84cc16;
+}
+
+.item-footer {
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.repairs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.repair-item {
+    background-color: #1c1c1c;
+    padding: 40px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.repair-item h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.repair-item p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.pricing-card {
+    background-color: #1c1c1c;
+    padding: 40px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.pricing-card .price {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #84cc16;
+    margin-bottom: 10px;
+}
+
+.pricing-card p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.disclaimer {
+    font-size: 1.2rem;
+    color: #ff0000;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#precision-cutting {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#precision-cutting h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+#precision-cutting p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+#blade-sharpening {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#blade-sharpening h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+#blade-sharpening p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+#blade-sharpening .price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #84cc16;
+    margin-top: 40px;
+}
+
+#more-services {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#more-services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.more-services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.more-service-item {
+    background-color: #1c1c1c;
+    padding: 40px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.more-service-item:hover {
+    transform: translateY(-10px);
+}
+
+.more-service-item i {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.more-service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.more-service-item p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+#brushcutters {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#brushcutters h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.brand-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.brand-item {
+    background-color: #1c1c1c;
+    padding: 40px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.brand-item h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #84cc16;
+}
+
+#machine-details {
+    padding: 60px 20px;
+}
+
+.machine-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.machine-image {
+    flex-basis: 40%;
+}
+
+.machine-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.machine-description {
+    flex-basis: 50%;
+    padding-left: 40px;
+}
+
+.machine-description h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.machine-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.machine-description .price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #84cc16;
+    margin-top: 20px;
+}
+
+.cart-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#customer-details {
+    padding: 60px 20px;
+}
+
+#customer-details h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+#customer-details form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.shipping-method {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.shipping-method input[type="radio"],
+.terms-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.shipping-terms {
+    margin-top: 20px;
+}
+
+#customer-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.shipping-terms p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.shipping-terms ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.shipping-terms li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+input.quantity-input {
+    width: 80px;
+    padding: 15px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background-color: #1c1c1c;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.cart-item-image {
+    flex-basis: 150px;
+    margin-right: 20px;
+}
+
+.cart-item-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.cart-item-total {
+    flex-basis: 150px;
+    text-align: right;
+}
+
+.cart-item-total p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.cart-count {
+    background-color: #84cc16;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+    right: 5px;
+}

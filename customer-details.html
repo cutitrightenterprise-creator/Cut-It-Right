@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUT IT RIGHT - Customer Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="customer-details">
+            <h2>Customer Details</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <br>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+                <br>
+                <label for="address">Address:</label>
+                <textarea id="address" name="address"></textarea>
+                <br>
+                <h3>Shipping Method</h3>
+                <div class="shipping-method">
+                    <input type="radio" id="store-collection" name="shipping" value="store-collection">
+                    <label for="store-collection">Store Collection (FREE)</label>
+                </div>
+                <div class="shipping-method">
+                    <input type="radio" id="courier-services" name="shipping" value="courier-services">
+                    <label for="courier-services">Courier Services (Fee to be confirmed)</label>
+                </div>
+                <br>
+                <div class="shipping-terms">
+                    <h3>Shipping Terms and Conditions</h3>
+                    <p>By selecting "Courier Services", you agree to the following terms and conditions:</p>
+                    <ul>
+                        <li>Shipping fees are calculated based on the weight and dimensions of the package, as well as the shipping destination.</li>
+                        <li>Shipping fees will be confirmed with you before your order is dispatched.</li>
+                        <li>We are not responsible for any delays or damages that may occur during shipping.</li>
+                    </ul>
+                </div>
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I agree to the Shipping Terms and Conditions</label>
+                </div>
+                <br>
+                <input type="submit" value="PROCEED TO PAYMENT" id="proceed-to-payment" disabled>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const termsCheckbox = document.getElementById('terms');
+        const proceedToPaymentButton = document.getElementById('proceed-to-payment');
+
+        termsCheckbox.addEventListener('change', () => {
+            if (termsCheckbox.checked) {
+                proceedToPaymentButton.disabled = false;
+            } else {
+                proceedToPaymentButton.disabled = true;
+            }
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2025 CUT IT RIGHT</p>
+        <p class="disclaimer">A FRIENDLY REMINDER: A R30 DAILY STORAGE FEE APPLIES TO ALL EQUIPMENT. TO ENSURE WE CAN CONTINUE PROVIDING TOP-NOTCH SERVICE, EQUIPMENT LEFT FOR OVER 90 DAYS WILL BE SOLD TO COVER COSTS.</p>
+    </footer>
+</body>
+</html>
