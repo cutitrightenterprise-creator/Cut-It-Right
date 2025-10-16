@@ -23,64 +23,79 @@
     <main>
         <section id="customer-details">
             <h2>Customer Details</h2>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
-                <br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <br>
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone">
-                <br>
-                <label for="address">Address:</label>
-                <textarea id="address" name="address"></textarea>
-                <br>
-                <h3>Shipping Method</h3>
-                <div class="shipping-method">
-                    <input type="radio" id="store-collection" name="shipping" value="store-collection">
-                    <label for="store-collection">Store Collection (FREE)</label>
-                </div>
-                <div class="shipping-method">
-                    <input type="radio" id="courier-services" name="shipping" value="courier-services">
-                    <label for="courier-services">Courier Services (Fee to be confirmed)</label>
-                </div>
-                <br>
-                <div class="shipping-terms">
-                    <h3>Shipping Terms and Conditions</h3>
-                    <p>By selecting "Courier Services", you agree to the following terms and conditions:</p>
-                    <ul>
-                        <li>Shipping fees are calculated based on the weight and dimensions of the package, as well as the shipping destination.</li>
-                        <li>Shipping fees will be confirmed with you before your order is dispatched.</li>
-                        <li>We are not responsible for any delays or damages that may occur during shipping.</li>
-                    </ul>
-                </div>
-                <div class="terms-checkbox">
-                    <input type="checkbox" id="terms" name="terms">
-                    <label for="terms">I agree to the Shipping Terms and Conditions</label>
-                </div>
-                <br>
-                <input type="submit" value="PROCEED TO PAYMENT" id="proceed-to-payment" disabled>
-            </form>
+            <div class="customer-form-container">
+                <form>
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <br>
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br>
+                    <label for="phone" class="form-label">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <br>
+                    <label for="address" class="form-label">Address:</label>
+                    <textarea id="address" name="address" required></textarea>
+                    <br>
+                    <h3>Shipping Method</h3>
+                    <div class="shipping-method">
+                        <input type="radio" id="store-collection" name="shipping" value="store-collection" required>
+                        <label for="store-collection">Store Collection (FREE)</label>
+                    </div>
+                    <div class="shipping-method">
+                        <input type="radio" id="courier-services" name="shipping" value="courier-services" required>
+                        <label for="courier-services">Courier Services (Fee to be confirmed)</label>
+                    </div>
+                    <br>
+                    <div class="shipping-terms">
+                        <h3>Shipping Terms and Conditions</h3>
+                        <p>By selecting "Courier Services", you agree to the following terms and conditions:</p>
+                        <ul>
+                            <li>Shipping fees are calculated based on the weight and dimensions of the package, as well as the shipping destination.</li>
+                            <li>Shipping fees will be confirmed with you before your order is dispatched.</li>
+                            <li>We are not responsible for any delays or damages that may occur during shipping.</li>
+                        </ul>
+                    </div>
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the Shipping Terms and Conditions</label>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <a href="payment.html" id="proceed-to-payment" class="btn" disabled>PROCEED TO PAYMENT</a>
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
 
     <script>
         const termsCheckbox = document.getElementById('terms');
+        const shippingMethodRadios = document.querySelectorAll('input[name="shipping"]');
         const proceedToPaymentButton = document.getElementById('proceed-to-payment');
 
-        termsCheckbox.addEventListener('change', () => {
-            if (termsCheckbox.checked) {
-                proceedToPaymentButton.disabled = false;
-            } else {
-                proceedToPaymentButton.disabled = true;
+        function validateForm() {
+            let shippingMethodSelected = false;
+            for (const radio of shippingMethodRadios) {
+                if (radio.checked) {
+                    shippingMethodSelected = true;
+                    break;
+                }
             }
+
+            if (termsCheckbox.checked && shippingMethodSelected) {
+                proceedToPaymentButton.removeAttribute('disabled');
+            } else {
+                proceedToPaymentButton.setAttribute('disabled', 'disabled');
+            }
+        }
+
+        termsCheckbox.addEventListener('change', validateForm);
+        shippingMethodRadios.forEach(radio => {
+            radio.addEventListener('change', validateForm);
         });
     </script>
 
-    <footer>
-        <p>&copy; 2025 CUT IT RIGHT</p>
-        <p class="disclaimer">A FRIENDLY REMINDER: A R30 DAILY STORAGE FEE APPLIES TO ALL EQUIPMENT. TO ENSURE WE CAN CONTINUE PROVIDING TOP-NOTCH SERVICE, EQUIPMENT LEFT FOR OVER 90 DAYS WILL BE SOLD TO COVER COSTS.</p>
-    </footer>
+
 </body>
 </html>

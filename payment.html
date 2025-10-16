@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUT IT RIGHT - Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="payment">
+            <h2>Payment</h2>
+            <div class="payment-container">
+                <div class="banking-details-container">
+                    <div class="banking-details">
+                        <h3>Banking Details</h3>
+                        <p><strong>BANK NAME:</strong> FIRST NATIONAL BANK</p>
+                        <p><strong>ACCOUNT NUMBER:</strong> 62842333693</p>
+                        <p><strong>ACCOUNT TYPE:</strong> GOLD BUSINESS ACCOUNT</p>
+                        <p><strong>SWIFT CODE:</strong> FIRNZAJJ</p>
+                        <p><strong>BRANCH NAME:</strong> KING WILLIAMS TOWN 264</p>
+                        <p><strong>BRANCH CODE:</strong> 210519</p>
+                        <p><strong>ACCOUNT TYPE:</strong> CURRENT/CHEQUE</p>
+                    </div>
+                    <div class="shipping-instruction">
+                        <p><strong>Shipping Instruction:</strong> No payment should be made without the shipping fee. Please contact us for the shipping fee on our WhatsApp.</p>
+                        <a href="https://wa.me/message/HXD3KS23G2NFK1" class="btn">Contact Us</a>
+                    </div>
+                </div>
+                <div class="payment-summary-container">
+                    <h3>Payment Summary</h3>
+                    <div class="payment-summary">
+                        <p><strong>Total Amount:</strong> <span id="total-amount"></span></p>
+                        <p><strong>Shipping Fee:</strong> <span id="shipping-fee"></span></p>
+                        <p><strong>Total to Pay:</strong> <span id="total-to-pay"></span></p>
+                    </div>
+                    <div class="payment-button-container">
+                        <a href="#" class="btn" id="payment-link">Pay Now (Placeholder)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalAmount = localStorage.getItem('totalAmount');
+            const totalAmountElement = document.getElementById('total-amount');
+            const shippingFeeElement = document.getElementById('shipping-fee');
+            const totalToPayElement = document.getElementById('total-to-pay');
+
+            if (totalAmount) {
+                totalAmountElement.textContent = `R${totalAmount}`;
+                const shippingFee = 300;
+                shippingFeeElement.textContent = `R${shippingFee.toFixed(2)}`;
+                const totalToPay = parseFloat(totalAmount) + shippingFee;
+                totalToPayElement.textContent = `R${totalToPay.toFixed(2)}`;
+            }
+        });
+    </script>
+</body>
+</html>

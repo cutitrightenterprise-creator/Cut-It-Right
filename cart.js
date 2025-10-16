@@ -1,40 +1,52 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButton = document.querySelector('.btn');
     const cartItemsContainer = document.querySelector('#cart-items');
     const cartTotal = document.querySelector('#cart-total');
     const clearCartButton = document.querySelector('#clear-cart');
+    const cartCount = document.querySelector('.cart-count');
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     function updateCartCount() {
-        const cartCount = document.querySelector('.cart-count');
         if (cartCount) {
             cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
         }
     }
 
-    if (addToCartButton) {
-        addToCartButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            const machineDetails = document.querySelector('#machine-details');
-            const productName = machineDetails.querySelector('h2').textContent;
-            const price = parseFloat(machineDetails.querySelector('.price').textContent.replace('R', '').replace(',', '.'));
-            const quantity = parseInt(document.querySelector('.quantity-input').value);
-            const imageSrc = machineDetails.querySelector('.machine-image img').getAttribute('src');
-
-            const item = {
-                productName,
-                price,
-                quantity,
-                imageSrc
-            };
-
-            cart.push(item);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            window.location.href = 'cart.html';
-        });
+    function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
     }
+
+    const addToCartButtons = document.querySelectorAll('.cart-actions .btn');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            if (e.target.textContent === 'ADD TO CART') {
+                e.preventDefault();
+                const machineDetails = e.target.closest('#machine-details');
+                const productName = machineDetails.querySelector('h2').textContent;
+                const price = parseFloat(machineDetails.querySelector('.price').textContent.replace('R', '').replace(',', '.'));
+                const quantity = parseInt(machineDetails.querySelector('.quantity-input').value);
+                const imageSrc = machineDetails.querySelector('.machine-image img').getAttribute('src');
+
+                const existingItem = cart.find(item => item.productName === productName);
+
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    const item = {
+                        productName,
+                        price,
+                        quantity,
+                        imageSrc
+                    };
+                    cart.push(item);
+                }
+
+                saveCart();
+            }
+        });
+    });
 
     if (cartItemsContainer) {
         if (cart.length > 0) {
@@ -73,11 +85,24 @@ document.addEventListener('DOMContentLoaded', () => {
             cartItemsContainer.innerHTML = '<p>Your cart is currently empty.</p>';
         }
     }
+
+    const checkoutButton = document.querySelector('.cart-buttons .btn');
+    if (checkoutButton && checkoutButton.textContent === 'Checkout') {
+        checkoutButton.addEventListener('click', (e) => {
+            const totalText = document.querySelector('#cart-total h3').textContent;
+            const totalAmount = totalText.replace('Total: R', '');
+            localStorage.setItem('totalAmount', totalAmount);
+        });
+    }
     
     if (clearCartButton) {
         clearCartButton.addEventListener('click', () => {
-            localStorage.removeItem('cart');
-            window.location.reload();
+            cart = [];
+            saveCart();
+            cartItemsContainer.innerHTML = '<p>Your cart is currently empty.</p>';
+            if (cartTotal) {
+                cartTotal.innerHTML = '';
+            }
         });
     }
 
